@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Hud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/bg_space_seamless.png" type="Texture" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Hud.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -14,12 +15,11 @@ _data = {
 script = ExtResource( 1 )
 Mob = ExtResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.321569, 0.678431, 0.8, 1 )
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 240, 450 )
+texture = ExtResource( 3 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -42,7 +42,7 @@ curve = SubResource( 1 )
 position = Vector2( -3.39021, 57.6207 )
 rotation = -9.73812e-07
 
-[node name="HUD" parent="." instance=ExtResource( 4 )]
+[node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
