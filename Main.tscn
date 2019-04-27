@@ -36,6 +36,7 @@ one_shot = true
 position = Vector2( 240, 450 )
 
 [node name="MobPath" type="Path2D" parent="."]
+editor/display_folded = true
 position = Vector2( 3.5141, -62.6168 )
 scale = Vector2( 1.03654, 1.08671 )
 curve = SubResource( 1 )
