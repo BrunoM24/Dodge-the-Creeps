@@ -8,9 +8,10 @@ var velocity := Vector2()
 var target := Vector2() # Add this variable to hold the clicked position
 
 func _ready():
-	hide()
 	screen_size = get_viewport_rect().size
-	
+	hide()
+
+
 func _process(delta):
 	# var velocity := Vector2() #The player's movement vector
 	
@@ -63,5 +64,6 @@ func start(pos : Vector2) -> void:
 
 # Change the target whenever a touch event happens
 func _input(event):
-	if event is InputEventScreenTouch and event.pressed:
+	if (event is InputEventScreenTouch and event.pressed) || event is InputEventScreenDrag:
 		target = event.position
+
